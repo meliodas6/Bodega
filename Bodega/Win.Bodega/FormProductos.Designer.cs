@@ -34,6 +34,7 @@
             System.Windows.Forms.Label existenciaLabel;
             System.Windows.Forms.Label idLabel;
             System.Windows.Forms.Label precioLabel;
+            System.Windows.Forms.Label categoriaIdLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
             this.listaProductosBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.listaProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -66,16 +67,20 @@
             this.button2 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button3 = new System.Windows.Forms.Button();
+            this.listadeCategoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoriaIdComboBox = new System.Windows.Forms.ComboBox();
             activoLabel = new System.Windows.Forms.Label();
             descripcionLabel = new System.Windows.Forms.Label();
             existenciaLabel = new System.Windows.Forms.Label();
             idLabel = new System.Windows.Forms.Label();
             precioLabel = new System.Windows.Forms.Label();
+            categoriaIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.listaProductosBindingNavigator)).BeginInit();
             this.listaProductosBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listaProductosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaProductosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listadeCategoriasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // activoLabel
@@ -122,6 +127,15 @@
             precioLabel.Size = new System.Drawing.Size(40, 13);
             precioLabel.TabIndex = 9;
             precioLabel.Text = "Precio:";
+            // 
+            // categoriaIdLabel
+            // 
+            categoriaIdLabel.AutoSize = true;
+            categoriaIdLabel.Location = new System.Drawing.Point(60, 94);
+            categoriaIdLabel.Name = "categoriaIdLabel";
+            categoriaIdLabel.Size = new System.Drawing.Size(52, 13);
+            categoriaIdLabel.TabIndex = 16;
+            categoriaIdLabel.Text = "Categoria";
             // 
             // listaProductosBindingNavigator
             // 
@@ -318,9 +332,9 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewCheckBoxColumn1});
             this.listaProductosDataGridView.DataSource = this.listaProductosBindingSource;
-            this.listaProductosDataGridView.Location = new System.Drawing.Point(298, 120);
+            this.listaProductosDataGridView.Location = new System.Drawing.Point(325, 160);
             this.listaProductosDataGridView.Name = "listaProductosDataGridView";
-            this.listaProductosDataGridView.Size = new System.Drawing.Size(382, 220);
+            this.listaProductosDataGridView.Size = new System.Drawing.Size(404, 136);
             this.listaProductosDataGridView.TabIndex = 11;
             // 
             // dataGridViewTextBoxColumn1
@@ -369,7 +383,7 @@
             this.fotoPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.listaProductosBindingSource, "Foto", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.fotoPictureBox.Location = new System.Drawing.Point(456, 12);
             this.fotoPictureBox.Name = "fotoPictureBox";
-            this.fotoPictureBox.Size = new System.Drawing.Size(224, 102);
+            this.fotoPictureBox.Size = new System.Drawing.Size(232, 142);
             this.fotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.fotoPictureBox.TabIndex = 14;
             this.fotoPictureBox.TabStop = false;
@@ -398,11 +412,30 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // listadeCategoriasBindingSource
+            // 
+            this.listadeCategoriasBindingSource.DataSource = typeof(BL.Bodega.Categoria);
+            // 
+            // categoriaIdComboBox
+            // 
+            this.categoriaIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.listaProductosBindingSource, "CategoriaId", true));
+            this.categoriaIdComboBox.DataSource = this.listadeCategoriasBindingSource;
+            this.categoriaIdComboBox.DisplayMember = "Descripcion";
+            this.categoriaIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.categoriaIdComboBox.FormattingEnabled = true;
+            this.categoriaIdComboBox.Location = new System.Drawing.Point(133, 91);
+            this.categoriaIdComboBox.Name = "categoriaIdComboBox";
+            this.categoriaIdComboBox.Size = new System.Drawing.Size(159, 21);
+            this.categoriaIdComboBox.TabIndex = 17;
+            this.categoriaIdComboBox.ValueMember = "Id";
+            // 
             // FormProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(770, 374);
+            this.Controls.Add(categoriaIdLabel);
+            this.Controls.Add(this.categoriaIdComboBox);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.fotoPictureBox);
@@ -420,7 +453,7 @@
             this.Controls.Add(this.precioTextBox);
             this.Controls.Add(this.listaProductosBindingNavigator);
             this.Name = "FormProductos";
-            this.Text = "Consulta";
+            this.Text = "Ingreso";
             this.Load += new System.EventHandler(this.FormProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.listaProductosBindingNavigator)).EndInit();
             this.listaProductosBindingNavigator.ResumeLayout(false);
@@ -428,6 +461,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.listaProductosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaProductosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listadeCategoriasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,5 +500,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.BindingSource listadeCategoriasBindingSource;
+        private System.Windows.Forms.ComboBox categoriaIdComboBox;
     }
 }

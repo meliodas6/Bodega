@@ -15,6 +15,7 @@ namespace Win.Bodega
     public partial class FormProductos : Form
     {
         ProductosBL _productos;
+        CategoriasBL _Categorias;
 
         public FormProductos()
         {
@@ -22,6 +23,9 @@ namespace Win.Bodega
 
             _productos = new ProductosBL();
             listaProductosBindingSource.DataSource = _productos.ObtenerProductos();//OBT PROD, nos retorna lista de productos
+
+            _Categorias = new CategoriasBL();
+            listadeCategoriasBindingSource.DataSource = _Categorias.ObtenerCategorias();
         }
 
         private void listaProductosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -104,13 +108,15 @@ namespace Win.Bodega
 
         private void toolStripButtonCancelar_Click(object sender, EventArgs e)
         {
+            _productos.CancelarCambios();
             DeshabilitarHabilitarBotones(true);
-            Eliminar(0);
+
         }
 
         private void FormProductos_Load(object sender, EventArgs e)
         {
             listaProductosBindingNavigatorSaveItem.Enabled = false;
+
         }
 
         private void button1_Click(object sender, EventArgs e)

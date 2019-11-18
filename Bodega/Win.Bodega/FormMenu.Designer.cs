@@ -67,7 +67,7 @@
             // 
             this.consultaDeProductoToolStripMenuItem.Name = "consultaDeProductoToolStripMenuItem";
             this.consultaDeProductoToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
-            this.consultaDeProductoToolStripMenuItem.Text = "Consulta de Producto";
+            this.consultaDeProductoToolStripMenuItem.Text = "Productos";
             this.consultaDeProductoToolStripMenuItem.Click += new System.EventHandler(this.consultaDeProductoToolStripMenuItem_Click);
             // 
             // consultaDeEspacioToolStripMenuItem
@@ -81,7 +81,7 @@
             this.transaccionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.salidasDeProductosToolStripMenuItem});
             this.transaccionToolStripMenuItem.Name = "transaccionToolStripMenuItem";
-            this.transaccionToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.transaccionToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.transaccionToolStripMenuItem.Text = "Transaccion";
             // 
             // salidasDeProductosToolStripMenuItem
@@ -108,14 +108,14 @@
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 

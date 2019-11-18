@@ -95,6 +95,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\BL.Bodega.CategoriasBL.datasource" />
     <None Include="Properties\DataSources\BL.Bodega.Producto.datasource" />
     <None Include="Properties\DataSources\BL.Bodega.ProductosBL.datasource" />
     <None Include="Properties\DataSources\BL.Bodega.SeguridadBL.datasource" />

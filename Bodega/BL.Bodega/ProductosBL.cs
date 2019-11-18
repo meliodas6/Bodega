@@ -31,6 +31,15 @@ namespace BL.Bodega
             return ListaProductos;
         }
 
+        public void CancelarCambios()
+        {
+            foreach (var item in _contexto.ChangeTracker.Entries())
+            {
+                item.State = EntityState.Unchanged;
+                item.Reload();
+            }
+        }
+
         public Resultado GuardarProducto(Producto producto)
         {
             var resultado = Validar(producto);
@@ -77,6 +86,12 @@ namespace BL.Bodega
                 resultado.Exitoso = false;
             }
 
+            if (producto.CategoriaId == 0)
+            {
+                resultado.Mensaje = "Seleccione una Categoria";
+                resultado.Exitoso = false;
+            }
+
             if (producto.Existencia < 0)
             {
                 resultado.Mensaje = "La existencia debe ser mayor que cero";
@@ -93,6 +108,9 @@ namespace BL.Bodega
         public string Descripcion { get; set; }
         public double Precio { get; set; }
         public int Existencia { get; set; }
+        public int CategoriaId { get; set; }
+        public Categoria Categoria { get; set; }
+        public int Ubicacion { get; set; }
         public byte[] Foto { get; set; }
         public bool Activo { get; set; } // Activa o desactiva un producto, si el P esta activo, puedo crear transacciones, verlo en Reportes
 
